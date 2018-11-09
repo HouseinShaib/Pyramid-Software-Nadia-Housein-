@@ -9,7 +9,7 @@
 display.setStatusBar(display.HiddenStatusBar)
 
 -- Global variables
-scrollSpeedCompanyLogo = 5.5
+scrollSpeedCompanyLogo = 7
 
 -- Displays the company logo
 local companyLogo = display.newImageRect("Images/CompanyLogoHouseinS@2x.png", 1024, 769)
