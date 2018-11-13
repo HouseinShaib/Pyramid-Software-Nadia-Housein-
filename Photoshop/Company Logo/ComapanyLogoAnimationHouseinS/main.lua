@@ -11,11 +11,21 @@ display.setStatusBar(display.HiddenStatusBar)
 -- Global variables
 scrollSpeedCompanyLogo = 7
 
+-- Creates "woosh" Sound
+local woosh = audio.loadSound("Sounds/companyLogoSound.mp3")
+local wooshChannel
+
 -- Displays the company logo
 local companyLogo = display.newImageRect("Images/CompanyLogoHouseinS@2x.png", 1024, 769)
 companyLogo.x = display.contentCenterX
 companyLogo.y = -display.contentHeight*1.1
-companyLogo.alpha = 0.5
+
+-- This function plays the sound effect
+local function PlaySound()
+	wooshChannel = audio.play(woosh)
+end
+
+timer.performWithDelay(1167, PlaySound)
 
 -- Function: MoveLogo
 -- Input: This function accepts an event listener
@@ -24,10 +34,10 @@ companyLogo.alpha = 0.5
 local function MoveLogo(event)
 	-- Adds the scroll speed to the x-value of pingu
 	companyLogo.y = companyLogo.y + scrollSpeedCompanyLogo
-	companyLogo.alpha = companyLogo.alpha + 0.0001
+
 	if (companyLogo.y > display.contentCenterY) then
 		scrollSpeedCompanyLogo = 0
-		companyLogo.alpha = 1
+		companyLogo.alpha = companyLogo.alpha - 0.007
 	end
 end
 
