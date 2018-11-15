@@ -20,11 +20,11 @@ local companyLogo = display.newImageRect("Images/CompanyLogoHouseinS@2x.png", 10
 companyLogo.x = display.contentCenterX
 companyLogo.y = -display.contentHeight*1.1
 
--- This function plays the sound effect
 local function PlaySound()
 	wooshChannel = audio.play(woosh)
 end
 
+-- Plays woosh sound
 timer.performWithDelay(1797, PlaySound)
 
 -- Function: MoveLogo
